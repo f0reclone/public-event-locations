@@ -12,12 +12,6 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('place_categories', function (Blueprint $table) {
-            // create following columns: Table place_categories {
-            //  id integer  [primary key]
-            //  name varchar
-            //  created_at timestamp
-            //  updated_at timestamp
-            //}
             $table->id();
             $table->string('name');
             $table->timestamps();

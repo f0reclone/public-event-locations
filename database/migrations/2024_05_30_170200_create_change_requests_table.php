@@ -12,18 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('change_requests', function (Blueprint $table) {
-            // Table change_requests {
-            //  id integer [primary key]
-            //  user_id integer [ref: > users.id]
-            //  place_id integer [ref: > places.id]
-            //  contents JSON
-            //  created_at timestamp
-            //  updated_at timestamp
-            //}
             $table->id();
-            $table->foreignId('user_id')->constrained();
-            $table->foreignId('place_id')->constrained();
-            $table->json('contents');
             $table->timestamps();
         });
     }

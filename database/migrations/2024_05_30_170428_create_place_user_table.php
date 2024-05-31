@@ -12,19 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('place_user', function (Blueprint $table) {
-    // Table place_user {
-            //  place_id integer [ref: > places.id]
-            //  user_id integer [ref: > users.id]
-            //  role enum("host", "editor")
-            //
-            //  Indexes {
-            //    (place_id, user_id) [unique]
-            //    user_id
-            //  }
-            //}
             $table->foreignId('place_id')->constrained();
             $table->foreignId('user_id')->constrained();
             $table->enum('role', ['host', 'editor']);
+            $table->timestamps();
+
+            // Indexes
             $table->unique(['place_id', 'user_id']);
         });
     }

@@ -12,13 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('images', function (Blueprint $table) {
-            // Table images {
-            //  id integer  [primary key]
-            //  description varchar
-            //  created_at timestamp
-            //  updated_at timestamp
-            //}
             $table->id();
+            $table->string('path',1024);
             $table->string('description');
             $table->timestamps();
         });

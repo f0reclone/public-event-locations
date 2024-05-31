@@ -11,10 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('attributes', function (Blueprint $table) {
+        Schema::create('custom_place_attributes', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->foreignId('attribute_group_id')->constrained();
             $table->timestamps();
         });
     }
@@ -24,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('attributes');
+        Schema::dropIfExists('custom_place_attributes');
     }
 };

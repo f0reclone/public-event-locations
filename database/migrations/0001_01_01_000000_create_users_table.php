@@ -36,19 +36,6 @@ return new class extends Migration
             $table->longText('payload');
             $table->integer('last_activity')->index();
         });
-
-        // create table with following schema Table places {
-        //  id integer [primary key]
-        //  name varchar
-        //  place_category_id integer [ref: > place_categories.id]
-        //  coordinates Point
-        //  created_at timestamp
-        //  updated_at timestamp
-        //
-        //  Indexes {
-        //    place_category_id
-        //  }
-        //}
     }
 
     /**

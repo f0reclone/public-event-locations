@@ -11,19 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('attribute_groups', function (Blueprint $table) {
-            // create table with following schema Table attribute_groups {
-            //  id integer  [primary key]
-            //  name varchar
-            //  is_custom bool
-            //  created_at timestamp
-            //  updated_at timestamp
-            //}
-
+        Schema::create('places', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->boolean('is_custom');
+            $table->foreignId('place_category_id');
+            $table->geography('coordinates', 'point');
             $table->timestamps();
+            
+            $table->foreign('place_category_id')
+                  ->references('id')
+                  ->on('place_categories');
         });
     }
 
@@ -32,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('attribute_groups');
+        Schema::dropIfExists('places');
     }
 };

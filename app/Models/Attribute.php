@@ -1,9 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 /**
  * 
@@ -27,4 +31,22 @@ use Illuminate\Database\Eloquent\Model;
 class Attribute extends Model
 {
     use HasFactory;
+
+    protected $guarded= [];
+
+    /**
+     * Get the attribute group that owns the attribute.
+     */
+    public function attributeGroup(): BelongsTo
+    {
+        return $this->belongsTo(AttributeGroup::class);
+    }
+
+    /**
+     * The places that belong to the attribute.
+     */
+    public function places(): BelongsToMany
+    {
+        return $this->belongsToMany(Place::class);
+    }
 }

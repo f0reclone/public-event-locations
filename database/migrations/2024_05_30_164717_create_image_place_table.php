@@ -12,18 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('image_place', function (Blueprint $table) {
-            // Table image_place {
-            //  image_id integer [ref: > images.id]
-            //  place_id integer [ref: > places.id]
-            //
-            //  Indexes {
-            //    (image_id, place_id) [unique]
-            //    place_id
-            //  }
-            //}
-            $table->foreignId('image_id')->constrained();
-            $table->foreignId('place_id')->constrained();
-            $table->unique(['image_id', 'place_id']);
+            $table->id();
+            $table->timestamps();
         });
     }
 

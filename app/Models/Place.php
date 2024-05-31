@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  *
@@ -35,5 +37,15 @@ class Place extends Model
     public function placeCategory(): BelongsTo
     {
         return $this->belongsTo(PlaceCategory::class);
+    }
+
+    public function attributes(): BelongsToMany
+    {
+        return $this->belongsToMany(Attribute::class);
+    }
+
+    public function customPlaceAttributes(): HasMany
+    {
+        return $this->hasMany(CustomPlaceAttribute::class);
     }
 }
