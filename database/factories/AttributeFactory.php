@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\AttributeGroup;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,8 @@ class AttributeFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => $this->faker->word,
+            'attribute_group_id' => AttributeGroup::first()->id
         ];
     }
 }

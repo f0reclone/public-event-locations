@@ -17,7 +17,8 @@ class ImageFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'path' => $this->faker->imageUrl(640, 480, 'cats'),  // Generates a random image URL
+            'description' => $this->faker->sentence(), // Generates a random sentence for description
         ];
     }
 }

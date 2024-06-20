@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('place_categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('description');
+            $table->foreignId('image_id')->constrained();
             $table->timestamps();
         });
     }

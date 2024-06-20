@@ -20,8 +20,12 @@ use Illuminate\Notifications\Notifiable;
  * @property string|null $remember_token
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\ChangeRequest> $changeRequests
+ * @property-read int|null $change_requests_count
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
  * @property-read int|null $notifications_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Place> $places
+ * @property-read int|null $places_count
  * @method static \Database\Factories\UserFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|User newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|User newQuery()
@@ -76,11 +80,11 @@ class User extends Authenticatable
 
     public function places(): BelongsToMany
     {
-        return $this->belongsToMany(Place::class);
+        return $this->belongsToMany(Place::class)->withPivot('role');
     }
 
     public function changeRequests(): HasMany
     {
-        return $this->hasMany('change_requests');
+        return $this->hasMany(ChangeRequest::class);
     }
 }

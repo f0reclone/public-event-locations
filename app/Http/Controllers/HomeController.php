@@ -12,7 +12,7 @@ class HomeController extends Controller
     public function index(): Response
     {
         return inertia('Home', [
-            'placeCategories' => PlaceCategory::all(),
+            'placeCategories' => PlaceCategory::query()->with('image')->get(),
         ]);
     }
 }

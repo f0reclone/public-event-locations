@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
+
 /**
  * 
  *
@@ -17,6 +18,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @property int $attribute_group_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\AttributeGroup $attributeGroup
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Place> $places
+ * @property-read int|null $places_count
  * @method static \Database\Factories\AttributeFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Attribute newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Attribute newQuery()

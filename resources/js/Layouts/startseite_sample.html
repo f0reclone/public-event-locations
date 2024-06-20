@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veranstaltungsort Finder</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- Header with Navbar -->
+    <header class="bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold">Logo Here</div>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="#" class="text-gray-700 hover:text-black">Home</a></li>
+                    <li><a href="#" class="text-gray-700 hover:text-black">Locations</a></li>
+                    <li><a href="#" class="text-gray-700 hover:text-black">Ereignisse</a></li>
+                    <li><a href="#" class="text-gray-700 hover:text-black">Über Uns</a></li>
+                    <li><a href="#" class="text-gray-700 hover:text-black">Kontakt</a></li>
+                </ul>
+            </nav>
+            <div>
+                <a href="#" class="text-gray-700 hover:text-black">Login</a>
+                <a href="#" class="bg-red-500 text-white px-4 py-2 rounded ml-2">Registrieren</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-cover bg-center py-32" style="background-image: url('your-image-url.jpg');">
+        <div class="container mx-auto text-center">
+            <h1 class="text-4xl font-bold text-white">FINDE DEINEN VERANSTALTUNGSORT</h1>
+            <form class="mt-8">
+                <input type="text" placeholder="Ort eingeben" class="px-4 py-2 rounded-l border-0 shadow">
+                <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded-r border-0 shadow">Suchen</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="container mx-auto px-4 py-16">
+        <h2 class="text-3xl font-bold text-center mb-8">Kategorien</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="bg-white p-6 rounded shadow-sm text-center">
+                <div class="h-24 bg-gray-200 mb-4"></div>
+                <h3 class="text-xl font-bold">Geburtstag</h3>
+                <p class="text-gray-600">Möchtest du deinen Geburtstag feiern und suchst ein gutes Lokal? Dann bist du
+                    auf
+                    unserer Plattform genau richtig.</p>
+            </div>
+            <div class="bg-white p-6 rounded shadow-sm text-center">
+                <div class="h-24 bg-gray-200 mb-4"></div>
+                <h3 class="text-xl font-bold">Ereignisse und Feste</h3>
+                <p class="text-gray-600">Finde Veranstaltungsorte für verschiedene Ereignisse und Feste in deiner Nähe.
+                </p>
+            </div>
+            <div class="bg-white p-6 rounded shadow-sm text-center">
+                <div class="h-24 bg-gray-200 mb-4"></div>
+                <h3 class="text-xl font-bold">Familienshalle</h3>
+                <p class="text-gray-600">Perfekte Orte für Familienversammlungen oder Familientreffen.</p>
+            </div>
+            <div class="bg-white p-6 rounded shadow-sm text-center">
+                <div class="h-24 bg-gray-200 mb-4"></div>
+                <h3 class="text-xl font-bold">Hochzeiten</h3>
+                <p class="text-gray-600">Romantische Locations für den schönsten Tag deines Lebens.</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>

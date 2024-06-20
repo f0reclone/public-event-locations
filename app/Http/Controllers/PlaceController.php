@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SearchPlaceRequest;
 use App\Http\Requests\StorePlaceRequest;
 use App\Http\Requests\UpdatePlaceRequest;
+use App\Http\Resources\PlaceCollection;
 use App\Http\Resources\PlaceResource;
 use App\Models\Place;
+use Illuminate\Support\Facades\DB;
+use MatanYadaev\EloquentSpatial\Enums\Srid;
+use MatanYadaev\EloquentSpatial\Objects\Point;
 
 class PlaceController extends Controller
 {
@@ -31,6 +36,28 @@ class PlaceController extends Controller
     public function store(StorePlaceRequest $request)
     {
         //
+    }
+
+    public function search(SearchPlaceRequest $request)
+    {
+        $data = $request->validated();
+        $latitude = $data['latitude']; // Latitude
+        $longitude = $data['longitude']; // Longitude
+
+        $point = new Point($latitude, $longitude, Srid::WGS84);
+
+        $radius = 40000; // Default radius in kilometers
+
+        // Perform the geolocation search
+        $places = Place::query()
+            ->whereDistanceSphere('coordinates', $point, '<', $radius)
+            ->withDistanceSphere('coordinates', $point)
+            ->get();
+
+        return inertia('Search', [
+            'places' => PlaceCollection::make($places),
+
+        ]);
     }
 
     /**
